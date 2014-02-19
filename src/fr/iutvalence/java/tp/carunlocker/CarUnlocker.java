@@ -16,8 +16,10 @@ public class CarUnlocker
 	 */
 	public CarUnlocker()
 	{
+		// Initialisation du niveau de la nouvelle partie
 		this.niveau = 0;
-		//Plateau base = new Plateau();
+		// Création du nouveau plateau de jeu correspondant au plateau de la nouvelle partie
+		Plateau base = new Plateau();
 	}
 	
 	/**
