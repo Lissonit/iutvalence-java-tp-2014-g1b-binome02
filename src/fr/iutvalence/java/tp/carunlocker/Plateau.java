@@ -3,12 +3,32 @@ package fr.iutvalence.java.tp.carunlocker;
 public class Plateau
 {
 	/**
-	 * Entier représentant la largeur du plateau de jeu comportant les voitures
+	 * Entier représentant la largeur par défaut d'un plateau de jeu comportant les voitures
 	 */
-	private final int LARGEUR_PLATEAU_DEFAULT = 6;
+	private static final int LARGEUR_PLATEAU_DEFAULT = 6;
 	
 	/**
-	 * Entier représentant la hauteur du plateau de jeu comportant les voitures
+	 * Entier représentant la hauteur par défaut d'un plateau de jeu comportant les voitures
 	 */
-	private final int HAUTEUR_PLATEAU_DEFAULT = 6;
+	private static final int HAUTEUR_PLATEAU_DEFAULT = 6;
+	
+	/**
+	 * Entier représentant la largeur du plateau
+	 */
+	private final int LARGEUR_PLATEAU;
+	
+	/**
+	 * Entier représentant la hauteur du plateau
+	 */
+	private final int HAUTEUR_PLATEAU;
+	
+	/**
+	 * Création du nouveau plateau vide de largeur et de hauteur par défaut
+	 */
+	public Plateau()
+	{
+		// Initialisation de la taille du plateau crée
+		this.LARGEUR_PLATEAU = LARGEUR_PLATEAU_DEFAULT;
+		this.HAUTEUR_PLATEAU = HAUTEUR_PLATEAU_DEFAULT;
+	}
 }
