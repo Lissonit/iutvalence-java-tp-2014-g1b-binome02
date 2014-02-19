@@ -4,6 +4,11 @@ public class CarUnlocker
 {
 	
 	/**
+	 * Entier représentant le niveau de difficulté de la partie
+	 */
+	private int niveau;
+	
+	/**
 	 * Retourne une nouvelle partie de jeu
 	 * La voiture principale et les secondaires
 	 * sont disposées dans leurs positions initiales
@@ -11,11 +16,12 @@ public class CarUnlocker
 	 */
 	public CarUnlocker()
 	{
-		// Quelque chose ...
+		this.niveau = 0;
+		//Plateau base = new Plateau();
 	}
 	
 	/**
-	 * Methode de lancement d'une partie
+	 * Methode de lancement de la partie
 	 */
 	public void jouer()
 	{
