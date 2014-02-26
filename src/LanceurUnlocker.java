@@ -9,7 +9,7 @@ public class LanceurUnlocker
 	
 	// TODO (fait) écrire un commentaire
 	/**
-	 * Application de démmarage d'une partie
+	 * Application de démarrage d'une partie
 	 * @param args
 	 */
 	public static void main(String[] args)

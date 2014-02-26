@@ -33,12 +33,20 @@ public class Plateau
 	private final int HAUTEUR_PLATEAU;
 	
 	/**
-	 * Création du nouveau plateau vide de largeur et de hauteur par défaut
+	 * Le tableau comportant les voitures
+	 */
+	public int[][] cases;
+	
+	/**
+	 * Création du nouveau plateau vide (valeur 0 dans chaque case) de largeur et de hauteur par défaut
 	 */
 	public Plateau()
 	{
 		// Initialisation de la taille du plateau crée
 		this.LARGEUR_PLATEAU = LARGEUR_PLATEAU_DEFAULT;
 		this.HAUTEUR_PLATEAU = HAUTEUR_PLATEAU_DEFAULT;
+		
+		this.cases = new int[this.HAUTEUR_PLATEAU][this.LARGEUR_PLATEAU];
+		
 	}
 }

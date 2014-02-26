@@ -13,6 +13,12 @@ public class CarUnlocker
 	 */
 	private int niveau;
 	
+	
+	/**
+	 * Déclaration du nouveau plateau de jeu correspondant au plateau de la nouvelle partie
+	 */
+	private Plateau base;
+	
 	/**
 	 * Retourne une nouvelle partie de jeu
 	 * La voiture principale et les secondaires
@@ -23,8 +29,8 @@ public class CarUnlocker
 	{
 		// Initialisation du niveau de la nouvelle partie
 		this.niveau = 0;
-		// Création du nouveau plateau de jeu correspondant au plateau de la nouvelle partie
-		Plateau base = new Plateau();
+		// Initialisation du nouveau plateau de jeu correspondant au plateau de la nouvelle partie
+		base = new Plateau();
 	}
 	
 	/**
@@ -32,6 +38,7 @@ public class CarUnlocker
 	 */
 	public void jouer()
 	{
+		
 		// Quelque chose ...
 	}
 }
