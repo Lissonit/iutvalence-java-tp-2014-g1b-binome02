@@ -1,11 +1,15 @@
 package fr.iutvalence.java.tp.carunlocker;
 
-//TODO écrire un commentaire
+//TODO (fait) écrire un commentaire
+/**
+ * La partie lancée
+ * @author lissonit
+ */
 public class CarUnlocker
 {
-	// TODO écrire un commentaire plus concis
+	// TODO (fait) écrire un commentaire plus concis
 	/**
-	 * Entier représentant le niveau de difficulté de la partie
+	 * Le niveau de difficulté de la partie
 	 */
 	private int niveau;
 	

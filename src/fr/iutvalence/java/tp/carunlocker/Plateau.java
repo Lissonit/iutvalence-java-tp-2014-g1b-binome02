@@ -1,29 +1,34 @@
 package fr.iutvalence.java.tp.carunlocker;
 
-//TODO écrire un commentaire
+
+//TODO (fait) écrire un commentaire
+/**
+ * Correspond a un environnement de jeu
+ * @author lissonit
+ */
 public class Plateau
 {
-	// TODO écrire un commentaire plus concis
+	// TODO (fait) écrire un commentaire plus concis
 	/**
-	 * Entier représentant la largeur par défaut d'un plateau de jeu comportant les voitures
+	 * La largeur par défaut du plateau de jeu
 	 */
 	private static final int LARGEUR_PLATEAU_DEFAULT = 6;
 	
-	// TODO écrire un commentaire plus concis
+	// TODO (fait) écrire un commentaire plus concis
 	/**
-	 * Entier représentant la hauteur par défaut d'un plateau de jeu comportant les voitures
+	 * La hauteur par défaut du plateau
 	 */
 	private static final int HAUTEUR_PLATEAU_DEFAULT = 6;
 	
-	// TODO écrire un commentaire plus concis
+	// TODO (fait) écrire un commentaire plus concis
 	/**
-	 * Entier représentant la largeur du plateau
+	 * La largeur du plateau
 	 */
 	private final int LARGEUR_PLATEAU;
 
-	// TODO écrire un commentaire plus concis
+	// TODO (fait) écrire un commentaire plus concis
 	/**
-	 * Entier représentant la hauteur du plateau
+	 * La hauteur du plateau
 	 */
 	private final int HAUTEUR_PLATEAU;
 	

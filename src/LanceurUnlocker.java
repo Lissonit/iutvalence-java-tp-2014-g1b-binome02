@@ -6,7 +6,12 @@ import fr.iutvalence.java.tp.carunlocker.CarUnlocker;
  */
 public class LanceurUnlocker
 {
-	// TODO écrire un commentaire
+	
+	// TODO (fait) écrire un commentaire
+	/**
+	 * Application de démmarage d'une partie
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		System.out.println("création de le partie");
