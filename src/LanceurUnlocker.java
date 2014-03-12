@@ -15,7 +15,7 @@ public class LanceurUnlocker
 	public static void main(String[] args)
 	{
 		System.out.println("création de le partie");
-		CarUnlocker partieDeCarUnlocker = new CarUnlocker();
+		CarUnlocker partieDeCarUnlocker = new CarUnlocker(Niveaux.A());
 		System.out.println("démarage de le partie");
 		partieDeCarUnlocker.jouer();
 		System.out.println("fin de le partie");
