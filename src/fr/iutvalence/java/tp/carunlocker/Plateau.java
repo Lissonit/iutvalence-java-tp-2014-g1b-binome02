@@ -1,7 +1,5 @@
 package fr.iutvalence.java.tp.carunlocker;
 
-import fr.iutvalence.java.tp.carunlocker.Direction.dir;
-
 
 //TODO (fait) écrire un commentaire
 /**

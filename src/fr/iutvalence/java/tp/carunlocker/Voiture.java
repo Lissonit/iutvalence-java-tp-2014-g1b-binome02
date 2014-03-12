@@ -6,7 +6,7 @@ public class Voiture
 	/**
 	 * la direction de la voiture
 	 */
-	private Direction.dir direction;
+	private Direction direction;
 	
 	/**
 	 * le nombre de case qu'occupe la voiture
@@ -24,7 +24,7 @@ public class Voiture
 	 * @param taille la taille de la voiture en nombre de cases
 	 * @param dir la direction de la voiture (horizontal ou vertical)
 	 */
-	public Voiture(Position positionTete, int taille, Direction.dir dir)
+	public Voiture(Position positionTete, int taille, Direction dir)
 	{
 		this.direction = dir;
 		this.positionTete = positionTete;
