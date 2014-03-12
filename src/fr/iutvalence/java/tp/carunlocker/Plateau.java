@@ -1,5 +1,7 @@
 package fr.iutvalence.java.tp.carunlocker;
 
+import fr.iutvalence.java.tp.carunlocker.Direction.dir;
+
 
 //TODO (fait) écrire un commentaire
 /**
@@ -33,20 +35,21 @@ public class Plateau
 	private final int HAUTEUR_PLATEAU;
 	
 	/**
-	 * Le tableau comportant les voitures
+	 * la liste des voitures présentes sur le plateau
 	 */
-	public int[][] cases;
+	private Voiture[] listVoiture;
 	
 	/**
-	 * Création du nouveau plateau vide (valeur 0 dans chaque case) de largeur et de hauteur par défaut
+	 * un nouveau plateau non vide de largeur et de hauteur par défaut
+	 * @param listeVoiture
 	 */
-	public Plateau()
+	public Plateau(Voiture[] listeVoiture)
 	{
 		// Initialisation de la taille du plateau crée
 		this.LARGEUR_PLATEAU = LARGEUR_PLATEAU_DEFAULT;
 		this.HAUTEUR_PLATEAU = HAUTEUR_PLATEAU_DEFAULT;
 		
-		this.cases = new int[this.HAUTEUR_PLATEAU][this.LARGEUR_PLATEAU];
+		this.listVoiture = listeVoiture;
 		
 	}
 }
