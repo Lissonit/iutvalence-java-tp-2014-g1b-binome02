@@ -14,10 +14,10 @@ public class LanceurUnlocker
 	 */
 	public static void main(String[] args)
 	{
-		System.out.println("création de le partie");
+		System.out.println("création de la partie");
 		CarUnlocker partieDeCarUnlocker = new CarUnlocker(Niveaux.A());
-		System.out.println("démarage de le partie");
+		System.out.println("démarage de la partie");
 		partieDeCarUnlocker.jouer();
-		System.out.println("fin de le partie");
+		System.out.println("fin de la partie");
 	}
 }
