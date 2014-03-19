@@ -56,9 +56,25 @@ public class Voiture
 		return this.taille;
 	}
 	
-	/*public void DeplacerVers(Direction dir, int nbrCases)
+	/*public void DeplacerVers(Voiture[] listeVoiture, Direction dir, int nbrCases)
 	{
 		// Déplacement de la voiture de nbrCases avec la direction indiquée
 		// Prendre en compte les obstacles (voitures présentes OU en dehors du plateau de jeu, etc ...)
 	}*/
+	
+	// TODO Faire la javadoc de la methode obstacle
+	/**
+	 * 
+	 * @param listeVoiture
+	 * @param position
+	 * @return
+	 */
+	private boolean estObstacle(Voiture[] listeVoiture, Position position)
+	{
+		for(Voiture voitureCourante : listeVoiture)
+			if (position.equals(voitureCourante.positionTete))
+				return true;
+		
+		return false;
+	}
 }
