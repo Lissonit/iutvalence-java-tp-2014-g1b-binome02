@@ -31,8 +31,34 @@ public class Voiture
 		this.taille = taille;
 	}
 	
+	
+	/**
+	 * @return la position de la tete de ma voiture
+	 */
+	public Position obtenirPosition()
+	{
+		return this.positionTete;
+	}
+	
+	/**
+	 * @return la direction de la voiture
+	 */
+	public Direction obtenirDirection()
+	{
+		return this.direction;
+	}
+	
+	/**
+	 * @return la taille de la voiture
+	 */
+	public int obtenirTaille()
+	{
+		return this.taille;
+	}
+	
 	/*public void DeplacerVers(Direction dir, int nbrCases)
 	{
 		// Déplacement de la voiture de nbrCases avec la direction indiquée
+		// Prendre en compte les obstacles (voitures présentes OU en dehors du plateau de jeu, etc ...)
 	}*/
 }
