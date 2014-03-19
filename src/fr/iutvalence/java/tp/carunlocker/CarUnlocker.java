@@ -30,7 +30,7 @@ public class CarUnlocker
 	 */
 	public void jouer()
 	{
-		
-		// Quelque chose ...
+		//Affichage du plateau avec les voitures
+		System.out.print(this.base.toString());
 	}
 }
