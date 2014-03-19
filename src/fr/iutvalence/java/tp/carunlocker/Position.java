@@ -53,4 +53,28 @@ public class Position
 	{
 		this.coordonnee_Y = Y;
 	}
+
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + coordonnee_X;
+		result = prime * result + coordonnee_Y;
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (! (obj instanceof Position))
+			return false;
+	
+		Position other = (Position) obj;
+		return ((this.coordonnee_X == other.coordonnee_X)&&(this.coordonnee_Y == other.coordonnee_Y));
+	}
 }
