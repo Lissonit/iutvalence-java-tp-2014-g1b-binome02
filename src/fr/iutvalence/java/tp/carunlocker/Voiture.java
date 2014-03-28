@@ -56,14 +56,6 @@ public class Voiture
 		return this.taille;
 	}
 	
-	/*public void DeplacerVers(Voiture[] listeVoiture, Direction dir, int nbrCases)
-	{
-		// Déplacement de la voiture de nbrCases avec la direction indiquée
-		// Prendre en compte les obstacles (voitures présentes OU en dehors du plateau de jeu, etc ...)
-	}*/
-	
-	
-	// TODO Javadoc à faire
 	/**
 	 * Savoir si la position est occupée par la voiture
 	 * @param La position à tester
