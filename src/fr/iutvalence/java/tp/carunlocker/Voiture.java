@@ -64,6 +64,11 @@ public class Voiture
 	
 	
 	// TODO Javadoc à faire
+	/**
+	 * Savoir si la position est occupée par la voiture
+	 * @param La position à tester
+	 * @return Retourne vrai si la tête ou le corps de la voiture occupe la position
+	 */
 	public boolean occupePosition(Position position)
 	{	
 		for(int indiceCorpsVoiture = 0; indiceCorpsVoiture < this.obtenirTaille(); indiceCorpsVoiture++)
