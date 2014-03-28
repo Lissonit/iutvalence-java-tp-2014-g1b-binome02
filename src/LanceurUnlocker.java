@@ -6,8 +6,6 @@ import fr.iutvalence.java.tp.carunlocker.CarUnlocker;
  */
 public class LanceurUnlocker
 {
-	
-	// TODO (fait) écrire un commentaire
 	/**
 	 * Application de démarrage d'une partie
 	 * @param args
