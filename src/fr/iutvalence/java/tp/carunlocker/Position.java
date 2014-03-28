@@ -53,6 +53,21 @@ public class Position
 	{
 		this.coordonnee_Y = Y;
 	}
+	
+	/**
+	 * Savoir si deux positions sont alignées
+	 * @param La position à tester
+	 * @param La direction de l'alignement
+	 * @return Retourne vrai si les positions sont alignés
+	 */
+	public boolean estAligneAvec(Position position, Direction direction)
+	{
+		if(direction.equals(direction.VERTICAL) && this.obtenirX() == position.obtenirX() )
+			return true;
+		if(direction.equals(direction.HORIZONTAL) && this.obtenirY() == position.obtenirY())
+			return true;
+		return false;
+	}
 
 	@Override
 	public int hashCode()
