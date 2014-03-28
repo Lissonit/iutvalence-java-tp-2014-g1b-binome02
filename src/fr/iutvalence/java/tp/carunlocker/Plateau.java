@@ -50,6 +50,25 @@ public class Plateau
 		this.listVoiture = listeVoiture;
 	}
 	
+
+	/**
+	 * Permet de savoir si la case indiquée est considérée comme un obstacle ou non
+	 * @param La position à tester
+	 * @return Retourne vrai si la position indiquée est un obstacle
+	 */
+	private boolean estObstacle(Position position)
+	{		
+		if(position.obtenirX() < 0 || position.obtenirX() > this.LARGEUR_PLATEAU ||
+				position.obtenirY() < 0 || position.obtenirY() > this.HAUTEUR_PLATEAU)
+			return true;
+		
+		for(Voiture voitureCourante : listVoiture)
+			if(voitureCourante.occupePosition(position))
+				return true;
+		
+		return false;
+	}
+	
 	/**
 	 * retourne le plateau avec des voitures, représentés par des caractères
 	 */
