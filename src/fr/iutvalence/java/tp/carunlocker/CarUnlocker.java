@@ -1,6 +1,4 @@
 package fr.iutvalence.java.tp.carunlocker;
-
-//TODO (fait) écrire un commentaire
 /**
  * La partie lancée
  * @author lissonit
