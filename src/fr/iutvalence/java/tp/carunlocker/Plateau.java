@@ -1,32 +1,27 @@
 package fr.iutvalence.java.tp.carunlocker;
 
 
-//TODO (fait) écrire un commentaire
 /**
  * Correspond a un environnement de jeu
  * @author lissonit
  */
 public class Plateau
 {
-	// TODO (fait) écrire un commentaire plus concis
 	/**
 	 * La largeur par défaut du plateau de jeu
 	 */
 	private static final int LARGEUR_PLATEAU_DEFAULT = 6;
 	
-	// TODO (fait) écrire un commentaire plus concis
 	/**
 	 * La hauteur par défaut du plateau
 	 */
 	private static final int HAUTEUR_PLATEAU_DEFAULT = 6;
 	
-	// TODO (fait) écrire un commentaire plus concis
 	/**
 	 * La largeur du plateau
 	 */
 	private final int LARGEUR_PLATEAU;
 
-	// TODO (fait) écrire un commentaire plus concis
 	/**
 	 * La hauteur du plateau
 	 */
@@ -50,7 +45,7 @@ public class Plateau
 		this.listVoiture = listeVoiture;
 	}
 	
-
+	
 	/**
 	 * Permet de savoir si la case indiquée est considérée comme un obstacle ou non
 	 * @param La position à tester
@@ -58,10 +53,6 @@ public class Plateau
 	 */
 	private boolean estObstacle(Position position)
 	{		
-		if(position.obtenirX() < 0 || position.obtenirX() > this.LARGEUR_PLATEAU ||
-				position.obtenirY() < 0 || position.obtenirY() > this.HAUTEUR_PLATEAU)
-			return true;
-		
 		for(Voiture voitureCourante : listVoiture)
 			if(voitureCourante.occupePosition(position))
 				return true;
@@ -69,6 +60,33 @@ public class Plateau
 		return false;
 	}
 	
+	
+	/**
+	 * Savoir si le déplacement d'une voiture vers une position est possible
+	 * @param La voiture à déplacer
+	 * @param La position envisagée
+	 * @return Retourne vrai si le déplacement vers la position envisagée est possible
+	 */
+	private boolean estDeplacementPossible(Voiture voiture, Position positionSouhaitee)
+	{
+		if(!this.estDansPlateau(positionSouhaitee))
+			return false;
+		// TODO Continuer la méthode
+		return true;
+	}
+	
+	/**
+	 * Savoir si la position est disposée sur le plateau
+	 * @param La position à tester
+	 * @return Retourne vrai si la position est disposée sur le plateau
+	 */
+	private boolean estDansPlateau(Position position)
+	{
+		if(position.obtenirX() >= 0 && position.obtenirX() < this.LARGEUR_PLATEAU &&
+				position.obtenirY() >= 0 && position.obtenirY() < this.HAUTEUR_PLATEAU)
+			return true;
+		return false;
+	}
 	/**
 	 * retourne le plateau avec des voitures, représentés par des caractères
 	 */
