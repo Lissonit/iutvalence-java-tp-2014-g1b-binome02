@@ -62,18 +62,25 @@ public class Voiture
 		// Prendre en compte les obstacles (voitures présentes OU en dehors du plateau de jeu, etc ...)
 	}*/
 	
-	// TODO Faire la javadoc de la methode obstacle
-	/**
-	 * 
-	 * @param listeVoiture
-	 * @param position
-	 * @return
-	 */
-	private boolean estObstacle(Voiture[] listeVoiture, Position position)
-	{
-		for(Voiture voitureCourante : listeVoiture)
-			if (position.equals(voitureCourante.positionTete))
-				return true;
+	
+	// TODO Javadoc à faire
+	public boolean occupePosition(Position position)
+	{	
+		for(int indiceCorpsVoiture = 0; indiceCorpsVoiture < this.obtenirTaille(); indiceCorpsVoiture++)
+		{
+			if(this.obtenirDirection().equals(Direction.VERTICAL))
+			{
+				if(position.equals(new Position(this.obtenirPosition().obtenirX(),
+						this.obtenirPosition().obtenirY() + indiceCorpsVoiture)))
+						return true;
+			}
+			else if(this.obtenirDirection().equals(Direction.HORIZONTAL))
+			{
+				if(position.equals(new Position(this.obtenirPosition().obtenirX() + indiceCorpsVoiture,
+						this.obtenirPosition().obtenirY())))
+						return true;
+			}
+		}
 		
 		return false;
 	}
