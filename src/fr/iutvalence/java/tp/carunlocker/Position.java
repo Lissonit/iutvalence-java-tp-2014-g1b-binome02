@@ -92,4 +92,24 @@ public class Position
 		Position other = (Position) obj;
 		return ((this.coordonnee_X == other.coordonnee_X)&&(this.coordonnee_Y == other.coordonnee_Y));
 	}
+	
+	/**
+	 * @param position position à tester
+	 * @return Retourne vrai si la position à tester est adjacent à cette position
+	 */
+	public boolean estAdjacent(Position position)
+	{
+		if(distanceAvec(position) <= 1)
+			return true;
+		return false;
+	}
+	
+	/**
+	 * @param position position à tester
+	 * @return Retourne la distance entière entre cette position et la position à tester 
+	 */
+	public int distanceAvec(Position position)
+	{
+		return (int)Math.sqrt(Math.pow(this.coordonnee_X - position.obtenirX() , 2) + Math.pow(this.coordonnee_Y - position.obtenirY() , 2));
+	}
 }
