@@ -1,5 +1,8 @@
 package fr.iutvalence.java.tp.carunlocker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Voiture
 {	
@@ -63,22 +66,35 @@ public class Voiture
 	 */
 	public boolean occupePosition(Position position)
 	{	
+		for (Position positionATester: this.obtenirCorpsAvecTete())
+		{
+			if (positionATester.equals(position))
+				return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * @return la liste des positions occupées par la voiture 
+	 */
+	public List<Position> obtenirCorpsAvecTete()
+	{
+		List<Position> listPosition = new ArrayList<Position>();
 		for(int indiceCorpsVoiture = 0; indiceCorpsVoiture < this.obtenirTaille(); indiceCorpsVoiture++)
 		{
 			if(this.obtenirDirection().equals(Direction.VERTICAL))
 			{
-				if(position.equals(new Position(this.obtenirPosition().obtenirX(),
-						this.obtenirPosition().obtenirY() + indiceCorpsVoiture)))
-						return true;
+				listPosition.add(new Position(this.obtenirPosition().obtenirX(),
+						this.obtenirPosition().obtenirY() + indiceCorpsVoiture));
 			}
 			else if(this.obtenirDirection().equals(Direction.HORIZONTAL))
 			{
-				if(position.equals(new Position(this.obtenirPosition().obtenirX() + indiceCorpsVoiture,
-						this.obtenirPosition().obtenirY())))
-						return true;
+				listPosition.add(new Position(this.obtenirPosition().obtenirX() + indiceCorpsVoiture,
+						this.obtenirPosition().obtenirY()));
 			}
 		}
-		
-		return false;
+		return listPosition;		
 	}
+	
 }
+	
