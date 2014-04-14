@@ -29,6 +29,9 @@ public class CarUnlocker
 	public void jouer()
 	{
 		//Affichage du plateau avec les voitures
+		System.out.print(this.base.toString()+ "\n");
+		System.out.println(this.base.voiturePeutGlisserVersPosition(this.base.obtenirListeVoitures()[0], new Position(1,0)));
+		this.base.deplacerVoiture(this.base.obtenirListeVoitures()[0], new Position(1,0));
 		System.out.print(this.base.toString());
 	}
 }

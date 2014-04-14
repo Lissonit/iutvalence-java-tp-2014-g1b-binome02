@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Une voiture 
+ * @author lissonit
+ */
 public class Voiture
 {	
 	/**
@@ -61,8 +65,8 @@ public class Voiture
 	
 	/**
 	 * Savoir si la position est occupée par la voiture
-	 * @param La position à tester
-	 * @return Retourne vrai si la tête ou le corps de la voiture occupe la position
+	 * @param position La position à tester
+	 * @return boolean Retourne vrai si la tête ou le corps de la voiture occupe la position
 	 */
 	public boolean occupePosition(Position position)
 	{	

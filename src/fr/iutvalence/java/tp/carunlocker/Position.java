@@ -1,5 +1,9 @@
 package fr.iutvalence.java.tp.carunlocker;
 
+/**
+ * Ensemble de coordonnées définies sur deux dimensions
+ * @author lissonit
+ */
 public class Position
 {
 	/**
@@ -85,8 +89,8 @@ public class Position
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + coordonnee_X;
-		result = prime * result + coordonnee_Y;
+		result = prime * result + this.coordonnee_X;
+		result = prime * result + this.coordonnee_Y;
 		return result;
 	}
 
@@ -111,7 +115,7 @@ public class Position
 	 */
 	public Position obtenirVoisine(Sens sens)
 	{
-		return new Position(this.coordonnee_X+sens.obtenirDecalageX(), this.coordonnee_Y+sens.obtenirDecalageY());
+		return new Position(this.coordonnee_X + sens.obtenirDecalageX(), this.coordonnee_Y + sens.obtenirDecalageY());
 		
 	}
 }

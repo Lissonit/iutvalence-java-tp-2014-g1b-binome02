@@ -33,8 +33,8 @@ public class Plateau
 	private Voiture[] listVoiture;
 	
 	/**
-	 * un nouveau plateau non vide de largeur et de hauteur par défaut
-	 * @param listeVoiture
+	 * Un nouveau plateau non vide de largeur et de hauteur par défaut
+	 * @param listeVoiture La liste de voiture disponible sur le plateau 
 	 */
 	public Plateau(Voiture[] listeVoiture)
 	{
@@ -57,12 +57,12 @@ public class Plateau
 	
 	/**
 	 * Permet de savoir si la case indiquée est considérée comme un obstacle ou non
-	 * @param La position à tester
-	 * @return Retourne vrai si la position indiquée est un obstacle
+	 * @param position La position à tester
+	 * @return boolean Retourne vrai si la position indiquée est un obstacle
 	 */
 	private boolean estLibre(Position position)
 	{		
-		for(Voiture voitureCourante : listVoiture)
+		for(Voiture voitureCourante : this.listVoiture)
 			if(voitureCourante.occupePosition(position))
 				return false;
 		
@@ -78,12 +78,14 @@ public class Plateau
 	{
 		if(estDeplacementPossible(voiture,positionSouhaitee)) 
 			voiture.modifierPosition(positionSouhaitee);
+		else
+			System.out.println("Déplacement impossible\n"); // (TODO) DELETE !!!
 	}
 	
 	/**
 	 * Savoir si le déplacement d'une voiture vers une position est possible
-	 * @param La voiture à déplacer
-	 * @param La position envisagée
+	 * @param voiture La voiture à déplacer
+	 * @param positionSouhaitee La position envisagée
 	 * @return Retourne vrai si le déplacement de la tête vers la position envisagée est adjacente et possible
 	 */
 	private boolean estDeplacementPossible(Voiture voiture, Position positionSouhaitee)
@@ -121,7 +123,7 @@ public class Plateau
 	 * @param positionSouhaitee Position voulue 
 	 * @return Retourne faux si le chemin entre la position de la voiture et la position souhaitée est occupée
 	 */
-	private boolean voiturePeutGlisserVersPosition(Voiture voiture, Position positionSouhaitee)
+	public boolean voiturePeutGlisserVersPosition(Voiture voiture, Position positionSouhaitee) // (TODO) private !
 	{
 		Position positionTete = voiture.obtenirPositionDeLaTete();
 		Sens sens = positionTete.estAligneAvec(positionSouhaitee);
@@ -143,8 +145,8 @@ public class Plateau
 
 	/**
 	 * Savoir si la position est disposée sur le plateau
-	 * @param La position à tester
-	 * @return Retourne vrai si la position est disposée sur le plateau
+	 * @param position La position à tester
+	 * @return boolean Retourne vrai si la position est disposée sur le plateau
 	 */
 	private boolean estDansPlateau(Position position)
 	{
