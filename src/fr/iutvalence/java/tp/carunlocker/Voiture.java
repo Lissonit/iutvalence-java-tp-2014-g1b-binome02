@@ -75,8 +75,8 @@ public class Voiture
 	}
 	
 	/**
-	 * Obtient toutes les cases occupées par la voiture
-	 * @return la liste des positions occupées par la voiture 
+	 * Retourne toutes les cases occupées par la voiture
+	 * @return Retourne la liste des positions occupées par la voiture 
 	 */
 	public List<Position> obtenirPositions()
 	{
@@ -101,7 +101,7 @@ public class Voiture
 	/**
 	 * Retourne la voiture à la position finale
 	 * @param positionFinale La position finale
-	 * @return Une voiture dans la position finale, sans déplacer l'actuelle
+	 * @return Retourne une voiture dans la position finale, sans déplacer l'actuelle
 	 */
 	public Voiture translaterVers(Position positionFinale)
 	{

@@ -62,7 +62,8 @@ public class Position
 	/**
 	 * Savoir si deux positions sont alignées
 	 * @param position La position à tester
-	 * @return Retourne vrai si les positions sont alignés
+	 * @return Retourne le sens selon la position donnée
+	 * cas par défaut : Retourne null
 	 */
 	public Sens estAligneAvec(Position position)
 	{
