@@ -45,6 +45,15 @@ public class Plateau
 		this.listVoiture = listeVoiture;
 	}
 	
+	/**
+	 * Renvoi la liste de voiture
+	 * @return Retourne la liste des voitures du plateau
+	 */
+	public Voiture[] obtenirListeVoitures()
+	{
+		return this.listVoiture;
+	}
+	
 	
 	/**
 	 * Permet de savoir si la case indiquée est considérée comme un obstacle ou non
