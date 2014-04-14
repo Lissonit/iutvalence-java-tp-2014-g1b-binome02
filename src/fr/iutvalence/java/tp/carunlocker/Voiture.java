@@ -38,7 +38,7 @@ public class Voiture
 	/**
 	 * @return la position de la tete de ma voiture
 	 */
-	public Position obtenirPosition()
+	public Position obtenirPositionDeLaTete()
 	{
 		return this.positionTete;
 	}
@@ -66,7 +66,7 @@ public class Voiture
 	 */
 	public boolean occupePosition(Position position)
 	{	
-		for (Position positionATester: this.obtenirCorpsAvecTete())
+		for (Position positionATester: this.obtenirPositions())
 		{
 			if (positionATester.equals(position))
 				return true;
@@ -75,26 +75,37 @@ public class Voiture
 	}
 	
 	/**
+	 * Obtient toutes les cases occupées par la voiture
 	 * @return la liste des positions occupées par la voiture 
 	 */
-	public List<Position> obtenirCorpsAvecTete()
+	public List<Position> obtenirPositions()
 	{
 		List<Position> listPosition = new ArrayList<Position>();
 		for(int indiceCorpsVoiture = 0; indiceCorpsVoiture < this.obtenirTaille(); indiceCorpsVoiture++)
 		{
 			if(this.obtenirDirection().equals(Direction.VERTICAL))
 			{
-				listPosition.add(new Position(this.obtenirPosition().obtenirX(),
-						this.obtenirPosition().obtenirY() + indiceCorpsVoiture));
+				listPosition.add(new Position(this.obtenirPositionDeLaTete().obtenirX(),
+						this.obtenirPositionDeLaTete().obtenirY() + indiceCorpsVoiture));
 			}
 			else if(this.obtenirDirection().equals(Direction.HORIZONTAL))
 			{
-				listPosition.add(new Position(this.obtenirPosition().obtenirX() + indiceCorpsVoiture,
-						this.obtenirPosition().obtenirY()));
+				listPosition.add(new Position(this.obtenirPositionDeLaTete().obtenirX() + indiceCorpsVoiture,
+						this.obtenirPositionDeLaTete().obtenirY()));
 			}
 		}
 		return listPosition;		
 	}
 	
+	
+	/**
+	 * Retourne la voiture à la position finale
+	 * @param positionFinale La position finale
+	 * @return Une voiture dans la position finale, sans déplacer l'actuelle
+	 */
+	public Voiture translaterVers(Position positionFinale)
+	{
+		 return new Voiture(positionFinale, this.taille, this.direction);
+	}
 }
 	

@@ -51,30 +51,76 @@ public class Plateau
 	 * @param La position à tester
 	 * @return Retourne vrai si la position indiquée est un obstacle
 	 */
-	private boolean estObstacle(Position position)
+	private boolean estLibre(Position position)
 	{		
 		for(Voiture voitureCourante : listVoiture)
 			if(voitureCourante.occupePosition(position))
-				return true;
+				return false;
 		
-		return false;
+		return true;
 	}
-	
 	
 	/**
 	 * Savoir si le déplacement d'une voiture vers une position est possible
 	 * @param La voiture à déplacer
 	 * @param La position envisagée
-	 * @return Retourne vrai si le déplacement vers la position envisagée est possible
+	 * @return Retourne vrai si le déplacement de la tête vers la position envisagée est adjacente et possible
 	 */
 	private boolean estDeplacementPossible(Voiture voiture, Position positionSouhaitee)
 	{
-		if(!this.estDansPlateau(positionSouhaitee))
-			return false;
-		// TODO Continuer la méthode
+		if (!voiturePeutOccuperPosition(voiture, positionSouhaitee)) return false;
+		if (!voiturePeutGlisserVersPosition(voiture, positionSouhaitee)) return false;
 		return true;
 	}
 	
+	/**
+	 * Test si la voiture peut occuper la position final
+	 * @param voiture Voiture à tester
+	 * @param positionFinale Position à verifier en fonction de la voiture
+	 * @return Retourne faux si une voiture occupe la position finale
+	 */
+	private boolean voiturePeutOccuperPosition(Voiture voiture, Position positionFinale)
+	{
+		Voiture voitureApresMouvement = voiture.translaterVers(positionFinale);
+		
+		for (Position position : voitureApresMouvement.obtenirPositions())
+		 for (Voiture voitureDeLaListe : this.listVoiture)
+		 {
+			 if (voitureDeLaListe == voiture) continue;
+			 if (voitureDeLaListe.occupePosition(position)) return false;
+		 }
+			
+		return true;
+	}
+
+
+	/**
+	 * Information : La position finale n'est pas à tester
+	 * Test si le chemin est possible
+	 * @param voiture Voiture à tester
+	 * @param positionSouhaitee Position voulue 
+	 * @return Retourne faux si le chemin entre la position de la voiture et la position souhaitée est occupée
+	 */
+	private boolean voiturePeutGlisserVersPosition(Voiture voiture, Position positionSouhaitee)
+	{
+		Position positionTete = voiture.obtenirPositionDeLaTete();
+		Sens sens = positionTete.estAligneAvec(positionSouhaitee);
+		if (sens == null) return false;
+		if (sens.getDirection() != voiture.obtenirDirection()) return false;
+	
+		while (true)
+		{
+			Position positionSuivante = positionTete.obtenirVoisine(sens);
+			positionTete = positionSuivante;
+			if (positionSuivante.equals(positionSouhaitee)) return true;
+			if (this.estLibre(positionSuivante)) continue;
+			if (voiture.occupePosition(positionSuivante)) continue;	
+			break;
+		}
+		return false;
+	}
+
+
 	/**
 	 * Savoir si la position est disposée sur le plateau
 	 * @param La position à tester
@@ -98,7 +144,7 @@ public class Plateau
 			int[][] tableau = new int[LARGEUR_PLATEAU_DEFAULT][HAUTEUR_PLATEAU_DEFAULT];
 			for(int indice = 0; indice < this.listVoiture.length; indice++)
 			{
-				Position posCour = this.listVoiture[indice].obtenirPosition();
+				Position posCour = this.listVoiture[indice].obtenirPositionDeLaTete();
 				tableau[posCour.obtenirX()]
 					   [posCour.obtenirY()] = indice + 1;
 				
