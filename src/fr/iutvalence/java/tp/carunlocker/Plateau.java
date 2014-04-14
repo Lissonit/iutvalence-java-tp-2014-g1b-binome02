@@ -61,6 +61,17 @@ public class Plateau
 	}
 	
 	/**
+	 * Effectue, si possible, un déplacement de la voiture vers la position souhaitée
+	 * @param voiture La voiture à modifier
+	 * @param positionSouhaitee La nouvelle position voulue pour la voiture
+	 */
+	private void deplacerVoiture(Voiture voiture, Position positionSouhaitee)
+	{
+		if(estDeplacementPossible(voiture,positionSouhaitee)) 
+			voiture.modifierPosition(positionSouhaitee);
+	}
+	
+	/**
 	 * Savoir si le déplacement d'une voiture vers une position est possible
 	 * @param La voiture à déplacer
 	 * @param La position envisagée

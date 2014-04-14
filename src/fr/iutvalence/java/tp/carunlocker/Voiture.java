@@ -107,5 +107,15 @@ public class Voiture
 	{
 		 return new Voiture(positionFinale, this.taille, this.direction);
 	}
+
+
+	/**
+	 * Modifie la position de la tête de la voiture
+	 * @param positionSouhaitee La nouvelle position de la tête de la voiture
+	 */
+	public void modifierPosition(Position positionSouhaitee)
+	{
+		this.positionTete = positionSouhaitee;
+	}
 }
 	
