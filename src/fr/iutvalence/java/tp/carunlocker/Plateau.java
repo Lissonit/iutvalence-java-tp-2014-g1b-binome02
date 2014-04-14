@@ -65,7 +65,7 @@ public class Plateau
 	 * @param voiture La voiture à modifier
 	 * @param positionSouhaitee La nouvelle position voulue pour la voiture
 	 */
-	private void deplacerVoiture(Voiture voiture, Position positionSouhaitee)
+	public void deplacerVoiture(Voiture voiture, Position positionSouhaitee)
 	{
 		if(estDeplacementPossible(voiture,positionSouhaitee)) 
 			voiture.modifierPosition(positionSouhaitee);
