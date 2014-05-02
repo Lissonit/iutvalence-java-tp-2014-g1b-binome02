@@ -1,9 +1,5 @@
+package fr.iutvalence.java.tp.carunlocker;
 import java.util.Random;
-
-import fr.iutvalence.java.tp.carunlocker.Joueur;
-import fr.iutvalence.java.tp.carunlocker.Mouvement;
-import fr.iutvalence.java.tp.carunlocker.Plateau;
-import fr.iutvalence.java.tp.carunlocker.Position;
 
 
 /**
