@@ -50,7 +50,7 @@ public class CarUnlocker
 		for (int numeroDuTour = 1;; numeroDuTour++)
 		{
 			
-			System.out.println("Tour "+numeroDuTour);
+			this.affichage.afficherDebutTour(numeroDuTour);
 			
 			// Affichage du plateau avec les voitures
 			this.affichage.afficherPlateau(this.plateau);
@@ -60,13 +60,13 @@ public class CarUnlocker
 			
 			while (true)
 			{
-				System.out.println("Mouvement ? ");
+				this.affichage.afficherDemandeDeMouvement();
 				Mouvement mouvement = this.joueur.obtenirMouvement();
 				voitureADeplacer = this.plateau.obtenirVoitures()[mouvement.obtenirNumeroDeVoiture()];
 				nouvellePositionDeLaTete =  mouvement.obtenirNouvellePositionDeLaTete();
 				if (this.plateau.voiturePeutGlisserVersPosition(voitureADeplacer, nouvellePositionDeLaTete)) 
 				{
-					System.out.println("Déplacement de la voiture "+ mouvement.obtenirNumeroDeVoiture()+" vers "+nouvellePositionDeLaTete);
+					this.affichage.afficherMouvement(mouvement);
 					break;
 				}
 			}

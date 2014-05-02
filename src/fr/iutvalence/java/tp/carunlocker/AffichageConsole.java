@@ -40,4 +40,24 @@ public class AffichageConsole implements Affichage
 		System.out.println(result);
 	}
 
+	@Override
+	public void afficherDebutTour(int numeroDuTour)
+	{
+		System.out.println("Tour " + numeroDuTour);
+	}
+
+	@Override
+	public void afficherDemandeDeMouvement()
+	{
+		System.out.println("Mouvement ? ");
+	}
+
+	@Override
+	public void afficherMouvement(Mouvement mouvement)
+	{
+		System.out.println("Déplacement de la voiture "
+				+ mouvement.obtenirNumeroDeVoiture() + " vers "
+				+ mouvement.obtenirNouvellePositionDeLaTete());
+	}
+
 }

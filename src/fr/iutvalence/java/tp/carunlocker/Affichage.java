@@ -13,4 +13,21 @@ public interface Affichage
 	 * @param plateau le plateau
 	 */
 	public void afficherPlateau(Plateau plateau);
+
+	/**
+	 * Afficher le début d'un tour
+	 * @param numeroDuTour le numéro du tour
+	 */
+	public void afficherDebutTour(int numeroDuTour);
+
+	/**
+	 * Afficher la demande de mouvement
+	 */
+	public void afficherDemandeDeMouvement();
+
+	/**
+	 * Afficher le mouvement
+	 * @param mouvement le mouvement
+	 */
+	public void afficherMouvement(Mouvement mouvement);
 }
