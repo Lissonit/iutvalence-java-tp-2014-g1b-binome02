@@ -99,4 +99,11 @@ public class Position
 		return new Position(this.x + sens.obtenirDecalageX(), this.y + sens.obtenirDecalageY());
 		
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Position [x=" + x + ", y=" + y + "]";
+	}
+	
 }
