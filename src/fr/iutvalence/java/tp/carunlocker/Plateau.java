@@ -30,28 +30,28 @@ public class Plateau
 	/**
 	 * la liste des voitures présentes sur le plateau
 	 */
-	private Voiture[] listVoiture;
+	private Voiture[] voitures;
 	
 	/**
 	 * Un nouveau plateau non vide de largeur et de hauteur par défaut
-	 * @param listeVoiture La liste de voiture disponible sur le plateau 
+	 * @param voitures La liste de voiture disponible sur le plateau 
 	 */
-	public Plateau(Voiture[] listeVoiture)
+	public Plateau(Voiture[] voitures)
 	{
 		// Initialisation de la taille du plateau crée
 		this.LARGEUR_PLATEAU = LARGEUR_PLATEAU_DEFAULT;
 		this.HAUTEUR_PLATEAU = HAUTEUR_PLATEAU_DEFAULT;
 		
-		this.listVoiture = listeVoiture;
+		this.voitures = voitures;
 	}
 	
 	/**
 	 * Renvoi la liste de voiture
 	 * @return Retourne la liste des voitures du plateau
 	 */
-	public Voiture[] obtenirListeVoitures()
+	public Voiture[] obtenirVoitures()
 	{
-		return this.listVoiture;
+		return this.voitures;
 	}
 	
 	
@@ -62,7 +62,7 @@ public class Plateau
 	 */
 	private boolean estLibre(Position position)
 	{		
-		for(Voiture voitureCourante : this.listVoiture)
+		for(Voiture voitureCourante : this.voitures)
 			if(voitureCourante.occupePosition(position))
 				return false;
 		
@@ -77,7 +77,7 @@ public class Plateau
 	public void deplacerVoiture(Voiture voiture, Position positionSouhaitee)
 	{
 		if(estDeplacementPossible(voiture,positionSouhaitee)) 
-			voiture.modifierPosition(positionSouhaitee);
+			voiture.deplacerVers(positionSouhaitee);
 		else
 			System.out.println("Déplacement impossible\n"); // (TODO) DELETE !!!
 	}
@@ -103,10 +103,10 @@ public class Plateau
 	 */
 	private boolean voiturePeutOccuperPosition(Voiture voiture, Position positionFinale)
 	{
-		Voiture voitureApresMouvement = voiture.translaterVers(positionFinale);
+		Voiture voitureApresMouvement = voiture.obtenirNouvelleVoitureParTranslation(positionFinale);
 		
 		for (Position position : voitureApresMouvement.obtenirPositions())
-		 for (Voiture voitureDeLaListe : this.listVoiture)
+		 for (Voiture voitureDeLaListe : this.voitures)
 		 {
 			 if (voitureDeLaListe == voiture) continue;
 			 if (voitureDeLaListe.occupePosition(position)) return false;
@@ -164,20 +164,20 @@ public class Plateau
 		{
 			String result = "";
 			int[][] tableau = new int[LARGEUR_PLATEAU_DEFAULT][HAUTEUR_PLATEAU_DEFAULT];
-			for(int indice = 0; indice < this.listVoiture.length; indice++)
+			for(int indice = 0; indice < this.voitures.length; indice++)
 			{
-				Position posCour = this.listVoiture[indice].obtenirPositionDeLaTete();
+				Position posCour = this.voitures[indice].obtenirPositionDeLaTete();
 				tableau[posCour.obtenirX()]
 					   [posCour.obtenirY()] = indice + 1;
 				
-				switch(this.listVoiture[indice].obtenirDirection())
+				switch(this.voitures[indice].obtenirDirection())
 				{
 					case VERTICAL:
-						for(int y = 1; y < this.listVoiture[indice].obtenirTaille(); y++)
+						for(int y = 1; y < this.voitures[indice].obtenirTaille(); y++)
 							tableau[posCour.obtenirX()][posCour.obtenirY() + y] = indice + 1;
 						break;
 					case HORIZONTAL:
-						for(int x = 1; x < this.listVoiture[indice].obtenirTaille(); x++)
+						for(int x = 1; x < this.voitures[indice].obtenirTaille(); x++)
 							tableau[posCour.obtenirX() + x][posCour.obtenirY()] = indice + 1;
 						break;
 					default:

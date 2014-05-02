@@ -84,21 +84,21 @@ public class Voiture
 	 */
 	public List<Position> obtenirPositions()
 	{
-		List<Position> listPosition = new ArrayList<Position>();
+		List<Position> positions = new ArrayList<Position>();
 		for(int indiceCorpsVoiture = 0; indiceCorpsVoiture < this.obtenirTaille(); indiceCorpsVoiture++)
 		{
 			if(this.obtenirDirection().equals(Direction.VERTICAL))
 			{
-				listPosition.add(new Position(this.obtenirPositionDeLaTete().obtenirX(),
+				positions.add(new Position(this.obtenirPositionDeLaTete().obtenirX(),
 						this.obtenirPositionDeLaTete().obtenirY() + indiceCorpsVoiture));
 			}
 			else if(this.obtenirDirection().equals(Direction.HORIZONTAL))
 			{
-				listPosition.add(new Position(this.obtenirPositionDeLaTete().obtenirX() + indiceCorpsVoiture,
+				positions.add(new Position(this.obtenirPositionDeLaTete().obtenirX() + indiceCorpsVoiture,
 						this.obtenirPositionDeLaTete().obtenirY()));
 			}
 		}
-		return listPosition;		
+		return positions;		
 	}
 	
 	
@@ -107,7 +107,7 @@ public class Voiture
 	 * @param positionFinale La position finale
 	 * @return Retourne une voiture dans la position finale, sans déplacer l'actuelle
 	 */
-	public Voiture translaterVers(Position positionFinale)
+	public Voiture obtenirNouvelleVoitureParTranslation(Position positionFinale)
 	{
 		 return new Voiture(positionFinale, this.taille, this.direction);
 	}
@@ -117,7 +117,7 @@ public class Voiture
 	 * Modifie la position de la tête de la voiture
 	 * @param positionSouhaitee La nouvelle position de la tête de la voiture
 	 */
-	public void modifierPosition(Position positionSouhaitee)
+	public void deplacerVers(Position positionSouhaitee)
 	{
 		this.positionTete = positionSouhaitee;
 	}
