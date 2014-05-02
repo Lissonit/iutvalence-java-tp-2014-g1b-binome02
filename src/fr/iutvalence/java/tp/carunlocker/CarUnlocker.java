@@ -20,6 +20,11 @@ public class CarUnlocker
 	private final Joueur joueur;
 
 	/**
+	 * L'affichage 
+	 */
+	private Affichage affichage;
+
+	/**
 	 * Retourne une nouvelle partie de jeu La voiture principale et les
 	 * secondaires sont disposées dans leurs positions initiales
 	 * 
@@ -28,12 +33,13 @@ public class CarUnlocker
 	 * @param joueur
 	 *            le joueur
 	 */
-	public CarUnlocker(Voiture[] voitures, Joueur joueur)
+	public CarUnlocker(Voiture[] voitures, Joueur joueur, Affichage affichage)
 	{
 		// Initialisation du nouveau plateau de jeu correspondant au plateau de
 		// la nouvelle partie
 		this.plateau = new Plateau(voitures);
 		this.joueur = joueur;
+		this.affichage = affichage;
 	}
 
 	/**
@@ -47,7 +53,7 @@ public class CarUnlocker
 			System.out.println("Tour "+numeroDuTour);
 			
 			// Affichage du plateau avec les voitures
-			System.out.print(this.plateau.toString() + "\n");
+			this.affichage.afficherPlateau(this.plateau);
 			
 			Voiture voitureADeplacer = null;
 			Position nouvellePositionDeLaTete = null;
@@ -67,7 +73,7 @@ public class CarUnlocker
 			
 			this.plateau.deplacerVoiture(voitureADeplacer, nouvellePositionDeLaTete);
 			
-			System.out.print(this.plateau.toString());
+			this.affichage.afficherPlateau(this.plateau);
 		}
 	}
 }

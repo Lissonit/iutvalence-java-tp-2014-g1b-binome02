@@ -141,47 +141,4 @@ public class Plateau
 			return true;
 		return false;
 	}
-	/**
-	 * retourne le plateau avec des voitures, représentés par des caractères
-	 */
-	public String toString()
-	{
-		try
-		{
-			String result = "";
-			int[][] tableau = new int[LARGEUR][HAUTEUR];
-			for(int indice = 0; indice < this.voitures.length; indice++)
-			{
-				Position posCour = this.voitures[indice].obtenirPositionDeLaTete();
-				tableau[posCour.obtenirX()]
-					   [posCour.obtenirY()] = indice + 1;
-				
-				switch(this.voitures[indice].obtenirDirection())
-				{
-					case VERTICAL:
-						for(int y = 1; y < this.voitures[indice].obtenirTaille(); y++)
-							tableau[posCour.obtenirX()][posCour.obtenirY() + y] = indice + 1;
-						break;
-					case HORIZONTAL:
-						for(int x = 1; x < this.voitures[indice].obtenirTaille(); x++)
-							tableau[posCour.obtenirX() + x][posCour.obtenirY()] = indice + 1;
-						break;
-					default:
-						break;
-				}
-			}
-		
-			for(int hauteur = 0; hauteur < LARGEUR; hauteur++)
-			{
-				for(int largeur = 0; largeur < HAUTEUR; largeur++)
-				{
-					result += tableau[largeur][hauteur] + " ";
-				}
-				result += "\n";
-			}
-			
-			return result;
-		}
-		catch(Exception e) { return "erreur : " + e.toString() + "\n"; }
-	}
 }
