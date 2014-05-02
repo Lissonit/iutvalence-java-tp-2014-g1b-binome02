@@ -9,12 +9,12 @@ public class Position
 	/**
 	 * coordonnee x de la position
 	 */
-	private int coordonnee_X;
+	private int x;
 
 	/**
 	 * coordonnee y de la position
 	 */
-	private int coordonnee_Y;
+	private int y;
 
 	/**
 	 * @param x
@@ -24,8 +24,8 @@ public class Position
 	 */
 	public Position(int x, int y)
 	{
-		this.coordonnee_X = x;
-		this.coordonnee_Y = y;
+		this.x = x;
+		this.y = y;
 	}
 
 	/**
@@ -33,16 +33,7 @@ public class Position
 	 */
 	public int obtenirX()
 	{
-		return this.coordonnee_X;
-	}
-
-	/**
-	 * @param X
-	 *            la nouvelle valeur de X
-	 */
-	public void modifierX(int X)
-	{
-		this.coordonnee_X = X;
+		return this.x;
 	}
 
 	/**
@@ -50,18 +41,8 @@ public class Position
 	 */
 	public int obtenirY()
 	{
-		return this.coordonnee_Y;
+		return this.y;
 	}
-
-	/**
-	 * @param Y
-	 *            la nouvelle valeur de Y
-	 */
-	public void modifierY(int Y)
-	{
-		this.coordonnee_Y = Y;
-	}
-
 	
 	/**
 	 * Savoir si deux positions sont alignées
@@ -71,14 +52,14 @@ public class Position
 	 */
 	public Sens estAligneAvec(Position position)
 	{
-			if (position.coordonnee_Y == this.coordonnee_Y)
+			if (position.y == this.y)
 			{
-				if (position.coordonnee_X <= this.coordonnee_X) return Sens.GAUCHE;
+				if (position.x <= this.x) return Sens.GAUCHE;
 				return Sens.DROITE;
 			}
-			if (position.coordonnee_X == this.coordonnee_X)
+			if (position.x == this.x)
 			{
-				if (position.coordonnee_Y <= this.coordonnee_Y) return Sens.HAUT;
+				if (position.y <= this.y) return Sens.HAUT;
 				return Sens.BAS;
 			}
 			return null;
@@ -89,8 +70,8 @@ public class Position
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + this.coordonnee_X;
-		result = prime * result + this.coordonnee_Y;
+		result = prime * result + this.x;
+		result = prime * result + this.y;
 		return result;
 	}
 
@@ -105,7 +86,7 @@ public class Position
 			return false;
 
 		Position other = (Position) obj;
-		return ((this.coordonnee_X == other.coordonnee_X) && (this.coordonnee_Y == other.coordonnee_Y));
+		return ((this.x == other.x) && (this.y == other.y));
 	}
 	
 	/**
@@ -115,7 +96,7 @@ public class Position
 	 */
 	public Position obtenirVoisine(Sens sens)
 	{
-		return new Position(this.coordonnee_X + sens.obtenirDecalageX(), this.coordonnee_Y + sens.obtenirDecalageY());
+		return new Position(this.x + sens.obtenirDecalageX(), this.y + sens.obtenirDecalageY());
 		
 	}
 }
