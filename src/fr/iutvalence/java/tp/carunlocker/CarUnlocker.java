@@ -9,18 +9,18 @@ public class CarUnlocker
 	/**
 	 * Déclaration du nouveau plateau de jeu correspondant au plateau de la nouvelle partie
 	 */
-	private Plateau base;
+	private final Plateau base;
 		
 	/**
 	 * Retourne une nouvelle partie de jeu
 	 * La voiture principale et les secondaires
 	 * sont disposées dans leurs positions initiales
-	 * @param listeVoiture liste contenant les voitures à disposer
+	 * @param voitures les voitures à disposer
 	 */
-	public CarUnlocker(Voiture[] listeVoiture)
+	public CarUnlocker(Voiture[] voitures)
 	{
 		// Initialisation du nouveau plateau de jeu correspondant au plateau de la nouvelle partie
-		this.base = new Plateau(listeVoiture);
+		this.base = new Plateau(voitures);
 	}
 	
 	/**
