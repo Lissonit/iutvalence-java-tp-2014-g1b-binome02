@@ -10,22 +10,12 @@ public class Plateau
 	/**
 	 * La largeur par défaut du plateau de jeu
 	 */
-	private static final int LARGEUR_PLATEAU_DEFAULT = 6;
+	public static final int LARGEUR = 6;
 	
 	/**
 	 * La hauteur par défaut du plateau
 	 */
-	private static final int HAUTEUR_PLATEAU_DEFAULT = 6;
-	
-	/**
-	 * La largeur du plateau
-	 */
-	private final int LARGEUR_PLATEAU;
-
-	/**
-	 * La hauteur du plateau
-	 */
-	private final int HAUTEUR_PLATEAU;
+	public static final int HAUTEUR = 6;
 	
 	/**
 	 * la liste des voitures présentes sur le plateau
@@ -37,11 +27,7 @@ public class Plateau
 	 * @param voitures La liste de voiture disponible sur le plateau 
 	 */
 	public Plateau(Voiture[] voitures)
-	{
-		// Initialisation de la taille du plateau crée
-		this.LARGEUR_PLATEAU = LARGEUR_PLATEAU_DEFAULT;
-		this.HAUTEUR_PLATEAU = HAUTEUR_PLATEAU_DEFAULT;
-		
+	{	
 		this.voitures = voitures;
 	}
 	
@@ -150,8 +136,8 @@ public class Plateau
 	 */
 	private boolean estDansPlateau(Position position)
 	{
-		if(position.obtenirX() >= 0 && position.obtenirX() < this.LARGEUR_PLATEAU &&
-				position.obtenirY() >= 0 && position.obtenirY() < this.HAUTEUR_PLATEAU)
+		if(position.obtenirX() >= 0 && position.obtenirX() < LARGEUR &&
+				position.obtenirY() >= 0 && position.obtenirY() < HAUTEUR)
 			return true;
 		return false;
 	}
@@ -163,7 +149,7 @@ public class Plateau
 		try
 		{
 			String result = "";
-			int[][] tableau = new int[LARGEUR_PLATEAU_DEFAULT][HAUTEUR_PLATEAU_DEFAULT];
+			int[][] tableau = new int[LARGEUR][HAUTEUR];
 			for(int indice = 0; indice < this.voitures.length; indice++)
 			{
 				Position posCour = this.voitures[indice].obtenirPositionDeLaTete();
@@ -185,9 +171,9 @@ public class Plateau
 				}
 			}
 		
-			for(int hauteur = 0; hauteur < LARGEUR_PLATEAU_DEFAULT; hauteur++)
+			for(int hauteur = 0; hauteur < LARGEUR; hauteur++)
 			{
-				for(int largeur = 0; largeur < HAUTEUR_PLATEAU_DEFAULT; largeur++)
+				for(int largeur = 0; largeur < HAUTEUR; largeur++)
 				{
 					result += tableau[largeur][hauteur] + " ";
 				}
